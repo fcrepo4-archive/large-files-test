@@ -1,0 +1,62 @@
+<infinispan xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:infinispan:config:5.2 http://www.infinispan.org/schemas/infinispan-config-5.2.xsd"
+  xmlns="urn:infinispan:config:5.2">
+  <global>
+    <globalJmxStatistics enabled="true"
+      allowDuplicateDomains="true" />
+  </global>
+  <default>
+  </default>
+  
+  <namedCache name="defaultCache">
+    <eviction maxEntries="500" strategy="LIRS" threadPolicy="DEFAULT" />
+    <transaction
+      transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+      transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+    <loaders passivation="false" shared="false" preload="false">
+      <loader class="org.infinispan.loaders.file.FileCacheStore"
+        fetchPersistentState="true" purgeOnStartup="false">
+        <properties>
+          <property name="location"
+            value="target/repo-storage" />
+          <property name="fsyncMode" value="perWrite" />
+        </properties>
+      </loader>
+    </loaders>
+  </namedCache>
+  
+  <namedCache name="metadataCache">
+    <eviction maxEntries="500" strategy="LIRS" threadPolicy="DEFAULT" />
+    <transaction
+      transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+      transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+    <loaders passivation="false" shared="false" preload="false">
+      <loader class="org.infinispan.loaders.file.FileCacheStore"
+        fetchPersistentState="true" purgeOnStartup="false">
+        <properties>
+          <property name="location"
+            value="target/metadata-storage" />
+          <property name="fsyncMode" value="perWrite" />
+        </properties>
+        <async enabled="true" flushLockTimeout="15000"
+          threadPoolSize="5" />
+      </loader>
+    </loaders>
+  </namedCache>
+  
+  <namedCache name="binaryCache">
+    <eviction maxEntries="100" strategy="LIRS" threadPolicy="DEFAULT" />
+    <transaction
+      transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
+      transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+    <loaders passivation="false" shared="false" preload="false">
+      <loader class="org.infinispan.loaders.file.FileCacheStore"
+        fetchPersistentState="true" purgeOnStartup="false">
+        <properties>
+          <property name="location" value="target/binary-storage" />
+          <property name="fsyncMode" value="perWrite" />
+        </properties>
+      </loader>
+    </loaders>
+  </namedCache>
+</infinispan>

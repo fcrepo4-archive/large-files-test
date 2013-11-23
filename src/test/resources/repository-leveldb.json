@@ -1,0 +1,29 @@
+{
+    "name" : "repo",
+    "jndiName" : "",
+    "workspaces" : {
+        "predefined" : ["default"],
+        "default" : "default",
+        "allowCreation" : true
+    },
+    "query" : {
+        "enabled" : false
+    },
+    "storage" : {
+        "cacheName" : "defaultCache",
+        "cacheConfiguration" : "infinispan-leveldb.xml",
+        "binaryStorage" : {
+            "type" : "cache",
+            "dataCacheName" : "binaryCache",
+            "metadataCacheName" : "metadataCache"
+        }
+    },
+    "security" : {
+        "anonymous" : {
+            "roles" : ["readonly","readwrite","admin"],
+            "useOnFailedLogin" : false
+        },
+        "providers" : [
+        ]
+    }
+}
