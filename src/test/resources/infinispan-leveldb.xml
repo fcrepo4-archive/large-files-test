@@ -11,7 +11,7 @@
   </default>
 
   <namedCache name="defaultCache">
-    <eviction maxEntries="500" strategy="LIRS" threadPolicy="DEFAULT" />
+    <eviction maxEntries="1" strategy="LIRS" threadPolicy="DEFAULT" />
     <transaction
       transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
       transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
@@ -23,7 +23,7 @@
   </namedCache>
 
   <namedCache name="metadataCache">
-    <eviction maxEntries="500" strategy="LIRS" threadPolicy="DEFAULT" />
+    <eviction maxEntries="1" strategy="LIRS" threadPolicy="DEFAULT" />
     <transaction
       transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
       transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
@@ -35,7 +35,7 @@
   </namedCache>
 
   <namedCache name="binaryCache">
-    <eviction maxEntries="100" strategy="LIRS" threadPolicy="DEFAULT" />
+    <eviction maxEntries="1" strategy="LIRS" threadPolicy="DEFAULT" />
     <transaction
       transactionManagerLookupClass="org.infinispan.transaction.lookup.GenericTransactionManagerLookup"
       transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />

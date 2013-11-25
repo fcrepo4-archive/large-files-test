@@ -48,6 +48,11 @@
       <artifactId>infinispan-cachestore-leveldb</artifactId>
       <version>5.3.0.Final</version>
     </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.0.13</version>
+    </dependency>
   </dependencies>
   <repositories>
     <repository>
@@ -60,6 +65,17 @@
       </releases>
       <snapshots>
         <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>fcrepo-snapshot</id>
+      <name>Fcrepo Snapshot Repository</name>
+      <url>http://maven.fcrepo.org/nexus/content/repositories/snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
       </snapshots>
     </repository>
   </repositories>
